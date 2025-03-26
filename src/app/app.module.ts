@@ -8,7 +8,7 @@ import { DemoNgZorroAntModule } from './DemoNgZorroAntModule';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -24,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserModule
   ]
 })
 export class AppModule { }
