@@ -9,7 +9,10 @@ const BASIC_URL = "http://localhost:8080/" ;
 })
 export class AuthService {
 
-  constructor(private http: HttpClient , private authService: AuthService) { }
+  constructor(
+    private http: HttpClient 
+    // private authService: AuthService
+  ) { }
 
   registerClient(signupRequeustDTO:any) : Observable<any> {
     return this.http.post(BASIC_URL + "client/sign-up",signupRequeustDTO) ;
