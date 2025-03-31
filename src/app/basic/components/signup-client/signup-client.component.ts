@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
-import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { NzNotificationModule, NzNotificationService } from 'ng-zorro-antd/notification';
 import { Router } from '@angular/router' ;
 import { error } from 'console';
+import { CommonModule } from '@angular/common';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzFormControlComponent, NzFormItemComponent, NzFormModule } from 'ng-zorro-antd/form';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 @Component({
   selector: 'app-signup-client',
-  imports: [],
+  standalone: true,
+  imports: [ReactiveFormsModule,CommonModule,NzLayoutModule, NzFormControlComponent, NzFormItemComponent,NzButtonModule,NzFormModule,NzNotificationModule ],
   templateUrl: './signup-client.component.html',
   styleUrl: './signup-client.component.scss'
 })
@@ -19,12 +24,12 @@ export class SignupClientComponent {
     private notification: NzNotificationService,
     private router : Router
   ){}
-  //  form not working need tp check why . 
+
   ngOnInit() {
     this.validateForm = this.fb.group({
       email : [null, [Validators.email , Validators.required ]] , 
       name : [null , [Validators.required]], 
-      lastName : [null , [Validators.required]],
+      lastName : [null , [Validators.required]],      
       phoneNumber : [null], 
       password : [null, [Validators.required]],
       checkPassword : [null , [Validators.required]]
