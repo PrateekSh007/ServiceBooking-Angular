@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
-import { Router } from 'express';
+import { Router } from '@angular/router' ;
+import { error } from 'console';
 
 @Component({
   selector: 'app-signup-client',
@@ -21,7 +22,29 @@ export class SignupClientComponent {
 
   ngOnInit() {
     this.validateForm = this.fb.group({
-      email : [null, [Validators.email, ]]
+      email : [null, [Validators.email , Validators.required ]] , 
+      name : [null , [Validators.required]], 
+      lastName : [null , [Validators.required]],
+      phoneNumber : [null], 
+      password : [null, [Validators.required]],
+      checkPassword : [null , [Validators.required]]
+    })
+  }
+
+  submitForm(){ 
+    this.authService.registerClient(this.validateForm.value).subscribe(res => { 
+      this.notification.success(
+        'SUCCESS',
+        'SignUp Succesfull',
+        {nzDuration : 5000}
+      );
+      this.router.navigateByUrl('/login') ;
+    },error =>{
+      this.notification.error(
+        'Error' ,
+        `${error.error}` ,
+        {nzDuration : 5000}
+      )
     })
   }
 

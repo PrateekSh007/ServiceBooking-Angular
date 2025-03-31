@@ -137,8 +137,7 @@ import { NzUploadModule } from "ng-zorro-antd/upload";
         NzTypographyModule,
         NzUploadModule,
         NzResizableModule,
-        NzPipesModule
-
+        NzPipesModule,
     ]
 })
 
