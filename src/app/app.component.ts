@@ -4,8 +4,8 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 
 @Component({
   selector: 'app-root',
-  standalone: true,  // ✅ Add this line
-  imports: [RouterOutlet, NzLayoutModule],  // ✅ Import NzLayoutModule here
+  standalone: true,  
+  imports: [RouterOutlet, NzLayoutModule],  
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
