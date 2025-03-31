@@ -19,7 +19,7 @@ export class SignupClientComponent {
     private notification: NzNotificationService,
     private router : Router
   ){}
-
+  //  form not working need tp check why . 
   ngOnInit() {
     this.validateForm = this.fb.group({
       email : [null, [Validators.email , Validators.required ]] , 
