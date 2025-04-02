@@ -11,7 +11,6 @@ export class AuthService {
 
   constructor(
     private http: HttpClient 
-    // private authService: AuthService
   ) { }
 
   registerClient(signupRequeustDTO:any) : Observable<any> {
